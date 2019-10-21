@@ -2,25 +2,30 @@ package com.example.tableproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.Resources;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    AssetManager am;
+    InputStream is;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+            am = getAssets();
+            is = am.open("fesheet.json");
+        }
+        catch(Exception e) {
+            System.out.println("IO ERROR!");
+            System.exit(-1);
+        }
 
-
-        InputStream is = getResources().openRawResource(R.raw.fesheet);    }
+    }
 }

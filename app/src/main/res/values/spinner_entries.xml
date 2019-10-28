@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prompt">Please select a stat.</string>
+
+    <string-array name="spinner_array">
+        <item>Base Level</item>
+        <item>Class</item>
+        <item>Crest</item>
+        <item>Base Str</item>
+        <item>Base Mag</item>
+        <item>Base Dex</item>
+        <item>Base Spd</item>
+        <item>Base Lck</item>
+        <item>Base Def</item>
+        <item>Base Res</item>
+        <item>Base Cha</item>
+        <item>Str%</item>
+        <item>Mag%</item>
+        <item>Dex%</item>
+        <item>Spd%</item>
+        <item>Lck%</item>
+        <item>Def%</item>
+        <item>Res%</item>
+        <item>Cha%</item>
+        <item>Strong Skills</item>
+        <item>Weak Skills</item>
+        <item>Budding Talents</item>
+    </string-array>
+</resources>
+

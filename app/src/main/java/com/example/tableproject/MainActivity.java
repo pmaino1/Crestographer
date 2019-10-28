@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-
+import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -13,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     //try RecyclerView!!
 
     Button searchButton;
-
+    Spinner spinner;
+    String spinnerText;
 
 
     @Override
@@ -23,6 +26,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         searchButton = findViewById(R.id.searchButton);
+        spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    String s = adapterView.getItemAtPosition(i).toString();
+                    spinnerText = s;
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+        }
+        );
     }
 
     /*
@@ -31,11 +48,16 @@ public class MainActivity extends AppCompatActivity {
     'Extra' functionality.
      */
     public void search(View view) {
+        //toasts not working?
+        Toast.makeText(this, "Loading from sheets...", Toast.LENGTH_LONG).show();
+
         //organize data to send over
 
         Intent dataIntent = new Intent(this, DataActivity.class);
-        // use 'dataIntent.putExtra(<key>,<data>)' to send info in the intent.
+        dataIntent.putExtra("SPINNER_TEXT",spinnerText);
+
         startActivity(dataIntent);
     }
+
 
 }
